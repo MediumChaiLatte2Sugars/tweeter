@@ -13,7 +13,7 @@ i#double-arrows {
   margin-inline: auto;
 }
 
-div {
+div#tweet-prompt {
   display: flex;
   flex-direction: column;
   margin-right: 1.5em;

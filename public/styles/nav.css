@@ -5,6 +5,7 @@ nav {
   color: #FFFFFF;
   display: flex;
   justify-content: space-between;
+  position: fixed;
 }
 
 i#double-arrows {

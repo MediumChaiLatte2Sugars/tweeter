@@ -1,0 +1,23 @@
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+}
+
+i#double-arrows {
+  color: red;
+  margin-inline: auto;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1.5em;
+  margin-bottom: 0.5em;
+  justify-content: flex-end;
+}
+
+span#tweet-prompt {margin-bottom: 0.25em;}

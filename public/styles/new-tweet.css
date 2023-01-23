@@ -1,0 +1,35 @@
+
+form#tweet-form {
+  display: flex;
+  flex-direction: column;
+}
+
+label#tweet-label {
+  border-bottom: solid;
+  border-width: 0.15em;
+  padding-bottom: 0.25em;
+  font-weight: bold;
+}
+
+textarea#tweet-text {
+  margin-top: 0.37em;
+}
+
+button#tweet-button {
+  font-family: "Bungee", curisve;
+  font-size: 18px;
+  color: white;
+  background-color: #4056A1;
+  border: none;
+}
+
+div#button-counter-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 0.37em;
+}
+
+output.counter {
+  font-family: "Bungee", cursive;
+}

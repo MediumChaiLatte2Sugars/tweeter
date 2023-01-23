@@ -36,3 +36,8 @@ div#button-counter-div {
 output.counter {
   font-family: "Bungee", cursive;
 }
+
+output.counter[negative="true"] {
+  font-family: "Bungee", cursive;
+  color: red;
+}

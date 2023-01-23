@@ -22,3 +22,5 @@ div#tweet-prompt {
 }
 
 span#tweet-prompt {margin-bottom: 0.25em;}
+
+span#tweet-prompt > span {font-weight: bold;}

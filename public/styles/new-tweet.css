@@ -24,6 +24,7 @@ button#tweet-button {
   color: white;
   background-color: #4056A1;
   border: none;
+  cursor: pointer;
 }
 
 div#button-counter-div {

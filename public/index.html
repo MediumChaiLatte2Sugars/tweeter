@@ -14,11 +14,13 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css">
   <link rel="stylesheet" href="/styles/header.css" type="text/css">
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
+  <link rel="stylesheet" href="/styles/tweet.css" type="text/css">
 
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <script type="text/javascript" src="/scripts/tweet-hover.js"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
@@ -59,6 +61,26 @@
         </div>
       </form>
     </section>
+    <!-- Tweet containers -->
+    <br>
+    <article class="tweet">
+      <header>
+        <div>
+            <span><img src="/images/profile-hex-small-transparent.png">Username</span>
+            <span class="tweet-user-handle">@Whatever</span>
+        </div>
+        <p class="tweet">This is a sample tweet</p>
+      </header>
+      <footer> 
+        <time>10 days ago</time>
+        <div class="tweet-actions">
+          <i class="fa-solid fa-flag"></i>
+          <i class="fa-solid fa-retweet"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+      </footer>
+    </article>
+    <br>
    </main>
 
   </body>

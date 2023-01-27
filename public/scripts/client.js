@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// Samble database to test dynamic tweet creation
 const data = [
   {
     "user": {
@@ -31,7 +32,7 @@ const data = [
 
 function renderTweets(tweetArray){
 
-  // Extract tweet container
+  // Extract tweet container from DOM 
   const tweetContainer = $('main.container');
 
   // Loop through tweets
@@ -41,8 +42,14 @@ function renderTweets(tweetArray){
 
 }
 
+/**
+ * Converts a JS tweet object into a DOM node, returning the result
+ * @param {*} tweet 
+ * @returns A DOM node representing a tweet
+ */
  function createTweetElement(tweet){
 
+  // Setup DOM tweet template with relevant tweet details interpolated
   const createdTweet = $(`
   <article class="tweet">
     <header>

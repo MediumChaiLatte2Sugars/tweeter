@@ -110,3 +110,9 @@ span.tweet-user-handle {
 span.tweet-user-handle[hover="true"] {
   color: #c9cae2;
 }
+
+img.tweet-user-avatar {
+  height: 85%;
+  width: auto;
+  margin-right: 0.25em;
+}

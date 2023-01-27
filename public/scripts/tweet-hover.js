@@ -1,28 +1,43 @@
 $(document).ready(function() {
 
   // Extract the article object
-  const article = $(".tweet")[0];
+  const tweetContainer = $("main.container");
+
+  // Define the mouseover function
+  function highlightTweetHandle(event) {
+
+    // Get the closest tweet jQuery
+    const currentTweet = $(event.target).closest("article.tweet");
+
+    // Extract handle
+    const tweetUserHandle = currentTweet.find("span.tweet-user-handle");
+
+    // Apply the style flag
+    if (tweetUserHandle.length === 1) { 
+      tweetUserHandle[0].setAttribute("hover", "true");
+    }
+
+  }
+
+  function unhighlightTweetHandle(event){
+
+    // Get the closest tweet
+    const currentTweet = $(event.target).closest("article.tweet");
+    
+    // Extract handle
+    const tweetUserHandle = currentTweet.find("span.tweet-user-handle");
+
+    // Remove the style flag
+    if (tweetUserHandle.length === 1) {
+      tweetUserHandle[0].removeAttribute("hover");
+    }
+
+  }
 
   // Change the style on mouseover
-  $(article).on("mouseover", function(event){
-
-    // Get user handle
-    const tweet = $(".tweet-user-handle")[0];
-
-    // Set hover to true
-    tweet.setAttribute("hover", "true");
-
-  });
+  $(tweetContainer).on("mouseover", highlightTweetHandle);
 
   // Reset style on mouseout
-  $(article).on("mouseout", function(event){
-
-    // Get user handle
-    const tweet = $(".tweet-user-handle")[0];
-
-    // Set hover to false
-    tweet.removeAttribute("hover");
-
-  });
+  $(tweetContainer).on("mouseout", unhighlightTweetHandle);
 
 });

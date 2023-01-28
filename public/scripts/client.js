@@ -72,10 +72,27 @@ $(document).ready(function() {
     event.preventDefault();
 
     // Extract tweet data from form DOM node
-    let tweetData = $( this ).serialize();
+    let tweetDataSerialized = $( this ).serialize();
+    let tweetText = $(this)[0][0].value;
+
+    // Validation: tweet is non-empty
+    if (!tweetText){
+
+      alert("Whoops! You didn't submit anything 🙃");
+      return;
+
+    }
+
+    // Validation: tweet is less than 140 characters
+    if (tweetText.length > 140){
+
+      alert("Whoa! That tweet's way too long! 😵");
+      return;
+
+    }
 
     // Make POST request with tweet data to /tweets
-    $.post('/tweets', tweetData);
+    $.post('/tweets', tweetDataSerialized);
 
   });
 });

@@ -17,7 +17,7 @@ $(document).ready(function() {
     const tweetUserHandle = currentTweet.find("span.tweet-user-handle");
 
     // Apply the style flag
-    if (tweetUserHandle.length === 1) { 
+    if (tweetUserHandle.length === 1) {
       tweetUserHandle[0].setAttribute("hover", "true");
     }
 
@@ -28,11 +28,11 @@ $(document).ready(function() {
    * the style on tweet user handles
    * @param {*} event 
    */
-  function unhighlightTweetHandle(event){
+  function unhighlightTweetHandle(event) {
 
     // Get the closest tweet DOM node
     const currentTweet = $(event.target).closest("article.tweet");
-    
+
     // Extract tweet handle DOM node
     const tweetUserHandle = currentTweet.find("span.tweet-user-handle");
 

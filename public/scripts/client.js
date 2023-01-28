@@ -22,21 +22,22 @@ const data = [
     "user": {
       "name": "Descartes",
       "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
+      "handle": "@rd"
+    },
     "content": {
       "text": "Je pense , donc je suis"
     },
     "created_at": 1461113959088
   }
-]
+];
 
-function renderTweets(tweetArray){
+function renderTweets(tweetArray) {
 
   // Extract tweet container from DOM 
   const tweetContainer = $('main.container');
 
   // Loop through tweets
-  for (let $tweet of tweetArray){
+  for (let $tweet of tweetArray) {
     tweetContainer.append(createTweetElement($tweet));
   }
 
@@ -47,7 +48,7 @@ function renderTweets(tweetArray){
  * @param {*} tweet 
  * @returns A DOM node representing a tweet
  */
- function createTweetElement(tweet){
+function createTweetElement(tweet) {
 
   // Setup DOM tweet template with relevant tweet details interpolated
   const createdTweet = $(`
@@ -72,10 +73,24 @@ function renderTweets(tweetArray){
 
   return createdTweet;
 
- }
+}
 
- // DOM work
- $(document).ready(function(){
+
+// DOM work
+$(document).ready(function() {
   renderTweets(data);
- });
- 
+
+  // Listener for tweet submission
+  $("#tweet-form").submit(function( event ) {
+    
+    // prevent the page from redirecting/refreshing
+    event.preventDefault();
+
+    // Extract tweet data from form DOM node
+    let tweetData = $( this ).serialize();
+
+    // Make POST request with tweet data to /tweets
+    $.post('/tweets', tweetData);
+
+  });
+});

@@ -1,15 +1,19 @@
 $(document).ready(function() {
 
-  // Extract the article object
+  // Extract the article DOM node (container for all the tweets)
   const tweetContainer = $("main.container");
 
-  // Define the mouseover function
+  /**
+   * Helper funciton for mouseover handler on tweets that helps style 
+   * tweet user handles
+   * @param {*} event 
+   */
   function highlightTweetHandle(event) {
 
-    // Get the closest tweet jQuery
+    // Get the closest tweet DOM node
     const currentTweet = $(event.target).closest("article.tweet");
 
-    // Extract handle
+    // Extract tweet handle DOM node
     const tweetUserHandle = currentTweet.find("span.tweet-user-handle");
 
     // Apply the style flag
@@ -19,12 +23,17 @@ $(document).ready(function() {
 
   }
 
+  /**
+   * Helper function for mouseout handler on tweets that helps reset
+   * the style on tweet user handles
+   * @param {*} event 
+   */
   function unhighlightTweetHandle(event){
 
-    // Get the closest tweet
+    // Get the closest tweet DOM node
     const currentTweet = $(event.target).closest("article.tweet");
     
-    // Extract handle
+    // Extract tweet handle DOM node
     const tweetUserHandle = currentTweet.find("span.tweet-user-handle");
 
     // Remove the style flag

@@ -43,6 +43,8 @@ article.tweet {
   flex-direction: column;
   border: 0.15em solid;
   padding: 0.35em;
+  margin-bottom: 0.6em;
+  margin-top: 0.6em;
 }
 
 .tweet-actions {

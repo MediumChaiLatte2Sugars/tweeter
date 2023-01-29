@@ -16,6 +16,12 @@ function renderTweets(tweetArray) {
 
 }
 
+function escape(str){
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 /**
  * Converts a JS tweet object into a DOM node, returning the result
  * @param {*} tweet 
@@ -28,10 +34,10 @@ function createTweetElement(tweet) {
   <article class="tweet">
     <header>
       <div>
-          <span><img src=${tweet.user.avatars} alt="Tweeter user avatar" class="tweet-user-avatar">${tweet.user.name}</span>
-          <span class="tweet-user-handle">${tweet.user.handle}</span>
+          <span><img src=${tweet.user.avatars} alt="Tweeter user avatar" class="tweet-user-avatar">${escape(tweet.user.name)}</span>
+          <span class="tweet-user-handle">${escape(tweet.user.handle)}</span>
       </div>
-      <p class="tweet">${tweet.content.text}</p>
+      <p class="tweet">${escape(tweet.content.text)}</p>
     </header>
     <footer> 
       <time>${timeago.format(tweet.created_at)}</time>

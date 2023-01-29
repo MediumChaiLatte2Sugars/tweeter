@@ -42,7 +42,7 @@ function createTweetElement(tweet) {
       </div>
     </footer>
   </article>
-  <br>`);
+  `);
 
   return createdTweet;
 
@@ -92,7 +92,16 @@ $(document).ready(function() {
     }
 
     // Make POST request with tweet data to /tweets
-    $.post('/tweets', tweetDataSerialized);
+    $.post('/tweets', tweetDataSerialized, function(data, status){
+      
+      // Empty the tweet containers
+      $('article.tweet').remove();
+      
+      // Load tweets
+      loadTweets();
+      
+    });
+    
 
   });
 });

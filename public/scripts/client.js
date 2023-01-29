@@ -71,6 +71,38 @@ loadTweets();
 // DOM work
 $(document).ready(function() {
 
+  // Listen for clicks on scroll to top button
+  $("div#scroll-to-top").click(function(){
+    
+    // Check if new tweet section is displayed
+   if ($("section.new-tweet").is(":visible")){
+
+    // Hide the tweet section
+    $("#tweet-text").focus();
+    return;
+   }
+
+   // Reveal the tweet form
+   $("section.new-tweet").slideDown("0.15", function(){
+
+    // Focus on the tweet form textarea
+    $("#tweet-text").focus();
+
+   });
+
+  });
+
+  // Listen for scrolling past the beginning
+  $(window).scroll(function(){
+    
+    if ($(window).scrollTop() > 500){
+      $("div#scroll-to-top")[0].setAttribute("hidden", "false");
+    } else {
+      $("div#scroll-to-top")[0].removeAttribute("hidden", "false");
+    }
+
+  })
+
   // Listener for clicks on the compose button
   $("span#tweet-prompt").click(function(){
 
@@ -87,7 +119,7 @@ $(document).ready(function() {
 
     // Focus on the tweet form textarea
     $("#tweet-text").focus();
-    
+
    });
 
   })

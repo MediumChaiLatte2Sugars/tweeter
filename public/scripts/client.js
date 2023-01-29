@@ -71,6 +71,14 @@ loadTweets();
 // DOM work
 $(document).ready(function() {
 
+  // Listener for tweet textarea focus
+  $("#tweet-text").focus(function(){
+
+    // Hide any currently displayed errors
+    $("p.tweet-error").slideUp("0.15");
+
+  })
+
   // Listener for tweet submission
   $("#tweet-form").submit(function( event ) {
     
@@ -83,8 +91,12 @@ $(document).ready(function() {
 
     // Validation: tweet is non-empty
     if (!tweetText){
+      
+      // Dissplay DOM error element for empty tweets
+      $("p.tweet-error").html(
+        `<i class="fa-solid fa-triangle-exclamation"></i> Whoops! You didn't submit anything 🙃 <i class="fa-solid fa-triangle-exclamation"></i>`)
+        .slideDown("0.15");
 
-      alert("Whoops! You didn't submit anything 🙃");
       return;
 
     }
@@ -92,7 +104,10 @@ $(document).ready(function() {
     // Validation: tweet is less than 140 characters
     if (tweetText.length > 140){
 
-      alert("Whoa! That tweet's way too long! 😵");
+      // Display DOM error element for long tweets
+      $("p.tweet-error").html(
+        `<i class="fa-solid fa-triangle-exclamation"></i> Whoa! That tweet's way too long! (140 characters max) 😵 <i class="fa-solid fa-triangle-exclamation"></i>`)
+        .slideDown("0.15");
       return;
 
     }

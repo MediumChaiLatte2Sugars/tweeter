@@ -1,0 +1,7 @@
+p.tweet-error { 
+  display: none;
+  border: 0.15em tomato solid;
+  padding: 0.6em;
+  color: tomato;
+  font-weight: bold;
+}

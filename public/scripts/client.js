@@ -71,6 +71,27 @@ loadTweets();
 // DOM work
 $(document).ready(function() {
 
+  // Listener for clicks on the compose button
+  $("span#tweet-prompt").click(function(){
+
+    // Check if new tweet section is displayed
+   if ($("section.new-tweet").is(":visible")){
+
+    // Hide the tweet section
+    $("section.new-tweet").slideUp("0.15");
+    return;
+   }
+
+   // Reveal the tweet form
+   $("section.new-tweet").slideDown("0.15", function(){
+
+    // Focus on the tweet form textarea
+    $("#tweet-text").focus();
+    
+   });
+
+  })
+
   // Listener for tweet textarea focus
   $("#tweet-text").focus(function(){
 

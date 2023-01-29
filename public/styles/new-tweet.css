@@ -42,3 +42,7 @@ output.counter[negative="true"] {
   font-family: "Bungee", cursive;
   color: red;
 }
+
+section.new-tweet{
+  display: none;
+}

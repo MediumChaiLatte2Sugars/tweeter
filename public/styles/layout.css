@@ -46,3 +46,9 @@ body {
   display: flex;
   flex-direction: column;
  }
+
+ div.tweet-container{
+  width: 90%;
+  display: flex;
+  flex-direction: column-reverse;
+ }

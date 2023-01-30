@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   // Extract the article DOM node (container for all the tweets)
-  const tweetContainer = $("main.container");
+  const tweetContainer = $("div.tweet-container");
 
   /**
    * Helper funciton for mouseover handler on tweets that helps style 

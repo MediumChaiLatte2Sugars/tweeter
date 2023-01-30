@@ -115,7 +115,8 @@ span.tweet-user-handle[hover="true"] {
 }
 
 img.tweet-user-avatar {
-  height: 85%;
+  height: 65%;
   width: auto;
-  margin-right: 0.25em;
+  margin-right: 0.55em;
+  margin-left: 0.25em;
 }

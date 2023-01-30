@@ -107,6 +107,7 @@ article.tweet:hover {box-shadow: 3px 3px 3px 1px #c9cae2;}
 
 span.tweet-user-handle {
   color: lightgrey;
+  font-weight: bold;
 }
 
 span.tweet-user-handle[hover="true"] {

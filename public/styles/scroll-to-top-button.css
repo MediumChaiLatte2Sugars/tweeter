@@ -9,7 +9,6 @@ div#scroll-to-top {
   width: 90px;
   font-size: 36;
   padding: 0.6em;
-  font-weight: bold;
   position: fixed;
   box-shadow: 2px 2px 3px 1px #0000000f;
   flex-direction: row;
@@ -29,7 +28,6 @@ div#scroll-to-top[hidden="false"] {
   width: 90px;
   font-size: 36;
   padding: 0.6em;
-  font-weight: bold;
   position: fixed;
   box-shadow: 2px 2px 2px 2px #0000000f;
   flex-direction: row;

@@ -77,7 +77,8 @@ $(document).ready(function() {
     // Check if new tweet section is displayed
    if ($("section.new-tweet").is(":visible")){
 
-    // Hide the tweet section
+    // Focus on the tweet section
+    $(window).scrollTop($("#tweet-text").offset());
     $("#tweet-text").focus();
     return;
    }
@@ -85,8 +86,13 @@ $(document).ready(function() {
    // Reveal the tweet form
    $("section.new-tweet").slideDown("0.15", function(){
 
-    // Focus on the tweet form textarea
-    $("#tweet-text").focus();
+     // Check if new tweet section is displayed
+    if ($("section.new-tweet").is(":visible")){
+
+      // Focus on the tweet section
+      $(window).scrollTop($("#tweet-text").offset());
+      $("#tweet-text").focus();
+    }
 
    });
 

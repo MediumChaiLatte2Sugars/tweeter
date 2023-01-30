@@ -30,6 +30,7 @@ span#tweet-prompt:hover {
   margin-bottom: 0.25em;
   padding: 0.25em;
   cursor: pointer;
+  color: lightgreen;
 }
 
 span#tweet-prompt > span {font-weight: bold;}

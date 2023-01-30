@@ -9,6 +9,11 @@ function renderTweets(tweetArray) {
   // Extract tweet container from DOM 
   const tweetContainer = $('main.container');
 
+  // Single tweeet case
+  if (tweetArray.length === 1){
+    return tweetContainer.append(createTweetElement(tweetArray[0]));
+  }
+
   // Loop through tweets
   for (let $tweet of tweetArray) {
     tweetContainer.append(createTweetElement($tweet));
@@ -61,6 +66,15 @@ function loadTweets(){
 
   $.get('/tweets', function(data){
     console.log(data);
+
+    // Rendering only the newest tweet from the webpage
+    if ((data.length) - $('article.tweet').length === 1){
+
+      let latestTweet = [data[data.length - 1]];
+      return renderTweets(latestTweet);
+
+    }
+
     renderTweets(data);
   })
 
@@ -173,9 +187,6 @@ $(document).ready(function() {
 
     // Make POST request with tweet data to /tweets
     $.post('/tweets', tweetDataSerialized, function(data, status){
-      
-      // Empty the tweet containers
-      $('article.tweet').remove();
       
       // Load tweets
       loadTweets();

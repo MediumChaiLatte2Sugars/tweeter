@@ -46,3 +46,20 @@ output.counter[negative="true"] {
 section.new-tweet{
   display: none;
 }
+
+/* Tweet button experimental animation  */
+
+#tweet-button {
+  background-position: center;
+  transition: background 0.8s;
+}
+
+#tweet-button:hover {
+  background: #5b6eae radial-gradient(circle, transparent 1%, #8390be 1%) center/15000%;
+}
+
+#tweet-button:active {
+  background-color: #acb4d1;
+  background-size: 100%;
+  transition: background 0s;
+}

@@ -45,6 +45,7 @@ output.counter[negative="true"] {
 
 section.new-tweet{
   display: none;
+  margin-bottom: 0.6em;
 }
 
 /* Tweet button experimental animation  */

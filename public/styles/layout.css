@@ -45,7 +45,7 @@ body {
   flex-direction: column;
  }
 
- div.tweet-container{
+ section.tweets{
   display: flex;
   flex-direction: column-reverse;
  }

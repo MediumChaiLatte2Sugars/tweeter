@@ -7,7 +7,7 @@
 function renderTweets(tweetArray) {
 
   // Extract tweet container from DOM 
-  const tweetContainer = $('div.tweet-container');
+  const tweetContainer = $('section.tweets');
 
   // Single tweeet case
   if (tweetArray.length === 1){

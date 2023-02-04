@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="/styles/tweet.css" type="text/css">
   <link rel="stylesheet" href="/styles/tweet-error.css" type="text/css">
   <link rel="stylesheet" href="/styles/scroll-to-top-button.css" type="text/css">
+  <link rel="stylesheet" href="/styles/responsive-layout.css" type="text/css">
 
 
   <!-- External JS -->
@@ -24,6 +25,7 @@
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   <script type="text/javascript" src="/scripts/tweet-hover.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src="/scripts/responsive-layout.js"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
@@ -40,34 +42,37 @@
     </div>
   </nav>
 
-  <!-- Header  -->
-  <header>
-    <div>
-        <img src="/images/profile-hex.png"> 
-    </div>
-    <br>
-    <div>
-        <h2>Your Name</h2>
-    </div>
-  </header>
+  <div id="responsive-content-container">
+    <!-- Header  -->
+    <header>
+      <div>
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div>
+          <h2>Your Name</h2>
+      </div>
+    </header>
+  
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <p class="tweet-error"></p>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets" id="tweet-form">
+          <label id="tweet-label" for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div id="button-counter-div">
+            <button type="submit" id="tweet-button">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <!-- Tweet container -->
+      <section class="tweets"></section>
+     </main>
+  </div>
 
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <p class="tweet-error"></p>
-    <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <form method="POST" action="/tweets" id="tweet-form">
-        <label id="tweet-label" for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
-        <div id="button-counter-div">
-          <button type="submit" id="tweet-button">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
-    <!-- Tweet container -->
-    <section class="tweets"></section>
-   </main>
    <div id="scroll-to-top">
     <i class="fa-solid fa-chevron-up"></i>
   </div>

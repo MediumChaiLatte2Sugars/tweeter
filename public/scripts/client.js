@@ -185,6 +185,8 @@ $(document).ready(function() {
 
     }
 
+    console.log("tweet data:", $(this)[0][0].value);
+
     // Make POST request with tweet data to /tweets
     $.post('/tweets', tweetDataSerialized, function(data, status){
       

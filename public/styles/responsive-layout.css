@@ -20,6 +20,10 @@ Mobile case
     -webkit-text-stroke: 0.01em grey;
   }
 
+  article.tweet span {
+    justify-content: flex-start;
+  }
+
 }
 
 /* Desktop case */

@@ -185,6 +185,9 @@ $(document).ready(function() {
 
     }
 
+    // Clear the textarea
+    $(this)[0][0].value = "";
+
     // Make POST request with tweet data to /tweets
     $.post('/tweets', tweetDataSerialized, function(data, status){
       

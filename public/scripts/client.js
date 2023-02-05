@@ -4,6 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+/**
+ * Tweet rendering helper function that takes an array of tweets, converts them to a tweet DOM element
+ * and appends them to the DOM
+ * @param {*} tweetArray 
+ * @returns 
+ */
 function renderTweets(tweetArray) {
 
   // Extract tweet container from DOM 
@@ -21,6 +27,11 @@ function renderTweets(tweetArray) {
 
 }
 
+/**
+ * Helper function to help stringify inputs from user to curtail XSS vulnerabilites
+ * @param {*} str 
+ * @returns 
+ */
 function escape(str){
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
@@ -80,6 +91,12 @@ function loadTweets(){
 
 }
 
+/**
+ * Helper function to determine if desired scrolling values have been reached to reveal the scroll toggle
+ * button returning a user to the top of the tweet section, focusing on the tweet form for input
+ * @param {*} element 
+ * @param {*} value 
+ */
 function checkElementScroll(element, value){
 
   if ($(element).scrollTop() > value){
@@ -90,6 +107,7 @@ function checkElementScroll(element, value){
 
 }
 
+// Initital load of the tweets on the DOM
 loadTweets();
 
 // DOM work
@@ -206,7 +224,7 @@ $(document).ready(function() {
     // Make POST request with tweet data to /tweets
     $.post('/tweets', tweetDataSerialized, function(data, status){
       
-      // Load tweets
+      // Load tweets on the DOM 
       loadTweets();
       
     });

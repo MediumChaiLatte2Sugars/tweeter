@@ -80,6 +80,16 @@ function loadTweets(){
 
 }
 
+function checkElementScroll(element, value){
+
+  if ($(element).scrollTop() > value){
+    $("div#scroll-to-top")[0].setAttribute("hidden", "false");
+  } else {
+    $("div#scroll-to-top")[0].removeAttribute("hidden", "false");
+  }
+
+}
+
 loadTweets();
 
 // DOM work
@@ -112,16 +122,19 @@ $(document).ready(function() {
 
   });
 
-  // Listen for scrolling past the beginning
+  // Listen for window scrolling past the beginning
   $(window).scroll(function(){
     
-    if ($(window).scrollTop() > 500){
-      $("div#scroll-to-top")[0].setAttribute("hidden", "false");
-    } else {
-      $("div#scroll-to-top")[0].removeAttribute("hidden", "false");
-    }
+   checkElementScroll(window, 500);
 
   })
+
+  // Listen for overflow scrolling on main element
+  $('main.container').scroll(function() {
+
+   checkElementScroll('main.container', 250);
+
+  });
 
   // Listener for clicks on the compose button
   $("span#tweet-prompt").click(function(){

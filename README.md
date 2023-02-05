@@ -14,12 +14,12 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Dependencies
 
-- Express
-- Node 5.10.x or above
+- [Express (4.13.4)](https://www.npmjs.com/package/express)
+- [Node 5.10.x or above](https://nodejs.org/)
+- [Body-parser (1.15.2)](https://www.npmjs.com/package/body-parser)
+- [Chance (1.0.2)](https://chancejs.com/)
 
 ## Demo
-
-
 
 https://user-images.githubusercontent.com/114053788/216802615-cdd96c36-d747-4768-ba5d-91ea369939ec.mp4
 

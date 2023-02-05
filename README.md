@@ -18,6 +18,7 @@ This repository is the starter code for the project: Students will fork and clon
 - [Node 5.10.x or above](https://nodejs.org/)
 - [Body-parser (1.15.2)](https://www.npmjs.com/package/body-parser)
 - [Chance (1.0.2)](https://chancejs.com/)
+- [md5 (2.1.0)](https://www.npmjs.com/package/md5)
 
 ## Demo
 

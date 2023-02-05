@@ -1,0 +1,17 @@
+@keyframes updown {
+  0% {
+    transform: translateY(-55%);
+  }
+
+  50% {
+    transform: translateY(25%);
+  }
+
+  100% {
+    transform: translateY(-55%);
+  }
+}
+
+i#double-arrows {
+  animation: updown 2s ease infinite;
+}

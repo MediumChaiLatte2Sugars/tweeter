@@ -16,7 +16,7 @@ function renderTweets(tweetArray) {
   const tweetContainer = $('section.tweets');
 
   // Single tweeet case
-  if (tweetArray.length === 1){
+  if (tweetArray.length === 1) {
     return tweetContainer.append(createTweetElement(tweetArray[0]));
   }
 
@@ -32,7 +32,7 @@ function renderTweets(tweetArray) {
  * @param {*} str 
  * @returns 
  */
-function escape(str){
+function escape(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -73,13 +73,12 @@ function createTweetElement(tweet) {
 /**
  * Perform ajax get requests to /tweets endpoint and render the recieved tweets from the server
  */
-function loadTweets(){
+function loadTweets() {
 
-  $.get('/tweets', function(data){
-    console.log(data);
+  $.get('/tweets', function(data) {
 
     // Rendering only the newest tweet from the webpage
-    if ((data.length) - $('article.tweet').length === 1){
+    if ((data.length) - $('article.tweet').length === 1) {
 
       let latestTweet = [data[data.length - 1]];
       return renderTweets(latestTweet);
@@ -87,7 +86,7 @@ function loadTweets(){
     }
 
     renderTweets(data);
-  })
+  });
 
 }
 
@@ -97,9 +96,9 @@ function loadTweets(){
  * @param {*} element 
  * @param {*} value 
  */
-function checkElementScroll(element, value){
+function checkElementScroll(element, value) {
 
-  if ($(element).scrollTop() > value){
+  if ($(element).scrollTop() > value) {
     $("div#scroll-to-top")[0].setAttribute("hidden", "false");
   } else {
     $("div#scroll-to-top")[0].removeAttribute("hidden", "false");
@@ -114,87 +113,87 @@ loadTweets();
 $(document).ready(function() {
 
   // Listen for clicks on scroll to top button
-  $("div#scroll-to-top").click(function(){
-    
+  $("div#scroll-to-top").on('click', function() {
+
     // Check if new tweet section is displayed
-   if ($("section.new-tweet").is(":visible")){
-
-    // Focus on the tweet section
-    $(window).scrollTop($("#tweet-text").offset());
-    $("#tweet-text").focus();
-    return;
-   }
-
-   // Reveal the tweet form
-   $("section.new-tweet").slideDown("0.15", function(){
-
-     // Check if new tweet section is displayed
-    if ($("section.new-tweet").is(":visible")){
+    if ($("section.new-tweet").is(":visible")) {
 
       // Focus on the tweet section
       $(window).scrollTop($("#tweet-text").offset());
       $("#tweet-text").focus();
+      return;
     }
 
-   });
+    // Reveal the tweet form
+    $("section.new-tweet").slideDown("0.15", function() {
+
+      // Check if new tweet section is displayed
+      if ($("section.new-tweet").is(":visible")) {
+
+        // Focus on the tweet section
+        $(window).scrollTop($("#tweet-text").offset());
+        $("#tweet-text").focus();
+      }
+
+    });
 
   });
 
   // Listen for window scrolling past the beginning
-  $(window).scroll(function(){
-    
-   checkElementScroll(window, 500);
+  $(window).on('scroll', function() {
 
-  })
+    checkElementScroll(window, 500);
+
+  });
 
   // Listen for overflow scrolling on main element
-  $('main.container').scroll(function() {
+  $('main.container').on('scroll', function() {
 
-   checkElementScroll('main.container', 250);
+    checkElementScroll('main.container', 250);
 
   });
 
   // Listener for clicks on the compose button
-  $("span#tweet-prompt").click(function(){
-    
+  $("span#tweet-prompt").on('click', function() {
+
     // Check if new tweet section is displayed
-    if ($("section.new-tweet").is(":visible")){
-      
+    if ($("section.new-tweet").is(":visible")) {
+
       // Hide the tweet section
       $("section.new-tweet").slideUp("0.15");
       return;
-   }
-   
-   // Reveal the tweet form
-   $("section.new-tweet").slideDown("0.15", function(){
-     
-     // Focus on the tweet form textarea
-    $("#tweet-text").focus();
-    
-   });
-   
-  })
+    }
+
+    // Reveal the tweet form
+    $("section.new-tweet").slideDown("0.15", function() {
+
+      // Focus on the tweet form textarea
+      $("#tweet-text").focus();
+
+    });
+
+  });
 
   // Listener for tweet submission
-  $("#tweet-form").submit(function( event ) {
-    
+  $("#tweet-form").submit(function(event) {
+
     // prevent the page from redirecting/refreshing
     event.preventDefault();
-    
+
     // Hide any currently displayed errors
     $("p.tweet-error").slideUp("0.15");
-    
+
     // Extract tweet DOM elements
     const textArea = $(this)[0][0];
     const charCounter = $(this)[0][2];
-    
+
     // Extract tweet data from form DOM node
-    let tweetDataSerialized = $( this ).serialize();
+    let tweetDataSerialized = $(this).serialize();
     let tweetText = textArea.value;
 
     // Validation: tweet is non-empty
-    if (!tweetText){
-      
+    if (!tweetText) {
+
       // Dissplay DOM error element for empty tweets
       $("p.tweet-error").html(
         `<i class="fa-solid fa-triangle-exclamation"></i> Whoops! You didn't submit anything 🙃 <i class="fa-solid fa-triangle-exclamation"></i>`)
@@ -205,7 +204,7 @@ $(document).ready(function() {
     }
 
     // Validation: tweet is less than 140 characters
-    if (tweetText.length > 140){
+    if (tweetText.length > 140) {
 
       // Display DOM error element for long tweets
       $("p.tweet-error").html(
@@ -222,13 +221,13 @@ $(document).ready(function() {
     charCounter.value = 140;
 
     // Make POST request with tweet data to /tweets
-    $.post('/tweets', tweetDataSerialized, function(data, status){
-      
+    $.post('/tweets', tweetDataSerialized, function(data, status) {
+
       // Load tweets on the DOM 
       loadTweets();
-      
+
     });
-    
+
 
   });
 });

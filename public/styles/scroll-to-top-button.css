@@ -3,10 +3,10 @@ div#scroll-to-top {
   color: white;
   background: red;
   border-radius: 50%;
-  bottom: 2%;
-  right: 2%;
-  height: 90px;
-  width: 90px;
+  bottom: 3%;
+  right: 1%;
+  height: 2em;
+  width: 2em;
   font-size: 36;
   padding: 0.6em;
   position: fixed;

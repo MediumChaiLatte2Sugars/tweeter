@@ -125,23 +125,23 @@ $(document).ready(function() {
 
   // Listener for clicks on the compose button
   $("span#tweet-prompt").click(function(){
-
+    
     // Check if new tweet section is displayed
-   if ($("section.new-tweet").is(":visible")){
-
-    // Hide the tweet section
-    $("section.new-tweet").slideUp("0.15");
-    return;
+    if ($("section.new-tweet").is(":visible")){
+      
+      // Hide the tweet section
+      $("section.new-tweet").slideUp("0.15");
+      return;
    }
-
+   
    // Reveal the tweet form
    $("section.new-tweet").slideDown("0.15", function(){
-
-    // Focus on the tweet form textarea
+     
+     // Focus on the tweet form textarea
     $("#tweet-text").focus();
-
+    
    });
-
+   
   })
 
   // Listener for tweet submission
@@ -153,9 +153,13 @@ $(document).ready(function() {
     // Hide any currently displayed errors
     $("p.tweet-error").slideUp("0.15");
     
+    // Extract tweet DOM elements
+    const textArea = $(this)[0][0];
+    const charCounter = $(this)[0][2];
+    
     // Extract tweet data from form DOM node
     let tweetDataSerialized = $( this ).serialize();
-    let tweetText = $(this)[0][0].value;
+    let tweetText = textArea.value;
 
     // Validation: tweet is non-empty
     if (!tweetText){
@@ -181,7 +185,10 @@ $(document).ready(function() {
     }
 
     // Clear the textarea
-    $(this)[0][0].value = "";
+    textArea.value = "";
+
+    // Reset the counter
+    charCounter.value = 140;
 
     // Make POST request with tweet data to /tweets
     $.post('/tweets', tweetDataSerialized, function(data, status){

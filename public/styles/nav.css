@@ -33,4 +33,6 @@ span#tweet-prompt:hover {
   color: lightgreen;
 }
 
-span#tweet-prompt > span {font-weight: bold;}
+span#tweet-prompt>span {
+  font-weight: bold;
+}

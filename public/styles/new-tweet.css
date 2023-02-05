@@ -1,4 +1,3 @@
-
 form#tweet-form {
   display: flex;
   flex-direction: column;
@@ -43,7 +42,7 @@ output.counter[negative="true"] {
   color: red;
 }
 
-section.new-tweet{
+section.new-tweet {
   display: none;
   margin-bottom: 0.6em;
 }

@@ -144,20 +144,15 @@ $(document).ready(function() {
 
   })
 
-  // Listener for tweet textarea focus
-  $("#tweet-text").focus(function(){
-
-    // Hide any currently displayed errors
-    $("p.tweet-error").slideUp("0.15");
-
-  })
-
   // Listener for tweet submission
   $("#tweet-form").submit(function( event ) {
     
     // prevent the page from redirecting/refreshing
     event.preventDefault();
-
+    
+    // Hide any currently displayed errors
+    $("p.tweet-error").slideUp("0.15");
+    
     // Extract tweet data from form DOM node
     let tweetDataSerialized = $( this ).serialize();
     let tweetText = $(this)[0][0].value;
